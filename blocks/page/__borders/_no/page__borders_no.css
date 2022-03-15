@@ -1,0 +1,9 @@
+.page__borders_no {
+    
+}
+@media screen and (max-width: 880px) {
+    .header__borders {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

@@ -6,17 +6,16 @@
     row-gap: 16px;  
     max-width: 486px;
     min-width: 282px;
-    align-items: end;
 }
 @media screen and (max-width: 998px) {
     .profile__info {
-        padding-bottom: 30px;  
+        padding-bottom: 36px;  
     }
 }
 @media screen and (max-width: 846px) {
     .profile__info {
         grid-template-columns: 189px 18px;
-        grid-template-rows: auto auto;
+        grid-template-rows: auto 26px;
         grid-gap: 14px 10px;
         grid-template-areas: 
             'avatar . '
