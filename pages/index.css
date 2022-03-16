@@ -17,3 +17,10 @@
 @import url(../blocks/profile/__edit-sign/profile__edit-sign.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/profile/__add-sign/profile__add-sign.css);
+@import url(../blocks/gallery/gallery.css);
+@import url(../blocks/gallery/__card/gallery__card.css);
+@import url(../blocks/gallery/__img/gallery__img.css);
+@import url(../blocks/gallery/__caption/gallery__caption.css);
+@import url(../blocks/gallery/__place/gallery__place.css);
+@import url(../blocks/gallery/__like/gallery__like.css);
+@import url(../blocks/gallery/__like-sign/gallery__like-sign.css);
