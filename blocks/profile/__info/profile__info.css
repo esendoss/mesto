@@ -3,7 +3,7 @@
     grid-template-columns: 120px auto 24px;
     grid-template-rows: 61px 43px;
     column-gap: 18px;
-    row-gap: 16px;  
+    row-gap: 16px;
     max-width: 486px;
     min-width: 282px;
 }
