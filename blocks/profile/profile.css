@@ -5,7 +5,6 @@
     justify-content: space-between;
     min-height: 120px;
     max-height: 286px;
-    max-width: 880px;
     align-items: center;
 }
 @media screen and (max-width: 998px) {
