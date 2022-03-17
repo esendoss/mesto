@@ -14,4 +14,4 @@
 
 С помощью JS добавить возможность ставить лайки и добавлять фотографии.
 
-*[Ссылка на GitHub Pages]()*
+*[Ссылка на GitHub Pages](https://esendoss.github.io/mesto/)*
