@@ -5,11 +5,16 @@
     border: 0;
     background: transparent;
     padding: 0;
-    margin-bottom: 8px;
-    position: absolute;
-    top: -40px;
-    right: -470px;
+    position: fixed;
+    margin-top: -40px;
+    margin-left: 438px;
 }
 .popup__exit:hover {
     opacity: 0.6;
+}
+@media screen and (max-width: 620px) {
+    .popup__exit {
+        margin-top: -36px;
+        margin-left: 262px;
+    }
 }
