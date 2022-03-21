@@ -1,9 +1,0 @@
-.borders {
-    
-}
-@media screen and (max-width: 880px) {
-    .borders {
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
