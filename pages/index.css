@@ -2,6 +2,7 @@
 @import url(../vendor/fonts/fonts.css);
 
 @import url(../blocks/page/page.css);
+@import url(../blocks/borders/borders.css);
 @import url(../blocks/header/header.css);
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/gallery/gallery.css);
@@ -33,7 +34,6 @@
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__submit/popup__submit.css);
 
-@import url(../blocks/page/__borders/_no/page__borders_no.css);
 @import url(../blocks/gallery/__like/_active/gallery__like_active.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__input/_data/popup__input_data_name.css);

@@ -8,29 +8,25 @@
 </head>
 <body class="page">
     <div class="page__box">
-        <header class="header page__borders page__borders_no">
+        <header class="header borders page__borders">
             <img class="header__logo" src="./images/logo.svg" alt="Логотип">
         </header>
         <main class="main">
-            <div class="profile page__borders">
+            <section class="profile page__borders">
                 <div class="profile__info">
                     <img class="profile__avatar" src="./images/Avatar.png" alt="Аватарка">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button class="profile__edit-button">
-                        <img class="profile__edit-sign" src="./images/edit.svg" alt="Кнопка правки">
-                    </button>
+                    <button class="profile__edit-button" type="button" aria-label="Редактировать"></button>
                     <p class="profile__about">Исследователь океана</p>
                 </div>
-                    <button class="profile__add-button">
-                        <img class="profile__add-sign" src="./images/add.svg" alt="Кнопка добавления">
-                    </button>
-            </div>
-            <div class="gallery page__borders">
+                    <button class="profile__add-button" type="button" aria-label="Добавить"></button>
+            </section>
+            <section class="gallery page__borders">
                 <div class="gallery__card">
                     <img class="gallery__img" src="./images/altai.jpg" alt="Алтай">
                     <div class="gallery__caption"> 
                         <h2 class="gallery__place">Алтай</h2>
-                        <button class="gallery__like">
+                        <button class="gallery__like" type="button">
                             <img src="./images/like.svg" alt="Лайк">
                         </button>
                     </div>
@@ -39,7 +35,7 @@
                     <img class="gallery__img" src="./images/ural-mountains.jpg" alt="Уральские горы">
                     <div class="gallery__caption"> 
                         <h2 class="gallery__place">Уральские горы</h2>
-                        <button class="gallery__like">
+                        <button class="gallery__like" type="button">
                             <img src="./images/like.svg" alt="Лайк">
                         </button>
                     </div>
@@ -48,7 +44,7 @@
                     <img class="gallery__img" src="./images/pik-zvozdnyy.jpg" alt="Пик Звёздный">
                     <div class="gallery__caption"> 
                         <h2 class="gallery__place">Пик Звёздный</h2>
-                        <button class="gallery__like">
+                        <button class="gallery__like" type="button">
                             <img src="./images/like.svg" alt="Лайк">
                         </button>
                     </div>
@@ -57,7 +53,7 @@
                     <img class="gallery__img" src="./images/Iceland.jpg" alt="Северное сияние в Исландии">
                     <div class="gallery__caption"> 
                         <h2 class="gallery__place">Исландия</h2>
-                        <button class="gallery__like">
+                        <button class="gallery__like" type="button">
                             <img src="./images/like.svg" alt="Лайк">
                         </button>
                     </div>
@@ -66,7 +62,7 @@
                     <img class="gallery__img" src="./images/сape-town.jpg" alt="Корабль">
                     <div class="gallery__caption"> 
                         <h2 class="gallery__place">Кейп Таун</h2>
-                        <button class="gallery__like">
+                        <button class="gallery__like" type="button">
                             <img src="./images/like.svg" alt="Лайк">
                         </button>
                     </div>
@@ -75,27 +71,29 @@
                     <img class="gallery__img" src="./images/great-gable.jpg" alt="Грейт Гейбл">
                     <div class="gallery__caption"> 
                         <h2 class="gallery__place">Грейт Гейбл</h2>
-                        <button class="gallery__like">
+                        <button class="gallery__like" type="button">
                             <img class="gallery__like-sign" src="./images/like.svg" alt="Лайк">
                         </button>
                     </div>
                 </div>
-            </div>
+            </section>
         </main>
         <footer class="footer page__borders">
             <p class="footer__author">&copy; 2022 Mesto Russia</p>
         </footer>
     </div>
     <div class="popup">
-        <form class="popup__container">
-            <button class="popup__exit">
-                <img class="popup__exit-sign" src="./images/close-icon.svg" alt="Кнопка выхода">
-            </button>
-            <h3 class="popup__title">Редактировать профиль</h3>
-            <input class="popup__input popup__input_data_name" type="text" id="name" value="Жак-Ив Кусто">
-            <input class="popup__input popup__input_data_job" type="text" id="description" value="Исследователь океана">
-            <button class="popup__submit">Сохранить</button>
-        </form>
+        <div class="popup__container">
+            <form class="form" name="edit-form">
+                <button class="popup__exit" type="button">
+                    <img class="popup__exit-sign" src="./images/close-icon.svg" alt="Кнопка выхода">
+                </button>
+                <h3 class="popup__title">Редактировать профиль</h3>
+                <input class="popup__input popup__input_data_name" type="text" id="name" value="" name="Жак-Ив Кусто">
+                <input class="popup__input popup__input_data_job" type="text" id="description" name="Исследователь океана">
+                <button class="popup__submit" type="submit">Сохранить</button>
+            </form>
+        </div>
     </div>
     <script src="./scripts/script.js"></script>
 </body>

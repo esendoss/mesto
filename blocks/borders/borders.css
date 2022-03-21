@@ -1,8 +1,8 @@
-.page__borders_no {
+.borders {
     
 }
 @media screen and (max-width: 880px) {
-    .header__borders {
+    .borders {
         padding-left: 0;
         padding-right: 0;
     }
