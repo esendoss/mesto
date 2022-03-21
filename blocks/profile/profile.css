@@ -2,9 +2,7 @@
     color: white;
     margin-top: 40px;
     display: flex;
-    justify-content: space-between;
-    min-height: 120px;
-    max-height: 286px;
+    justify-content: space-between;    
     align-items: center;
 }
 @media screen and (max-width: 998px) {
@@ -14,8 +12,6 @@
 }
 @media screen and (max-width: 846px) {
     .profile {
-        flex-direction: column;
-        height: 286px;
         justify-content: flex-end;
     }
 }
