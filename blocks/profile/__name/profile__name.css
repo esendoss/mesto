@@ -5,6 +5,10 @@
     margin: 0;
     padding-left: 12px;
     padding-top: 22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 294px;
 }
 @media screen and (max-width: 846px) {
     .profile__name {
