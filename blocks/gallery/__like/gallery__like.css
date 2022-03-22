@@ -6,6 +6,7 @@
     align-items: center;
     background: none;
     border: 0;
+    cursor: pointer;
 }
 .gallery__like:hover {
     opacity: 0.5;

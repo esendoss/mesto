@@ -8,6 +8,7 @@
     position: fixed;
     margin-top: -40px;
     margin-left: 438px;
+    cursor: pointer;
 }
 .popup__exit:hover {
     opacity: 0.6;
