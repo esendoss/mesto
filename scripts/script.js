@@ -9,8 +9,8 @@ let description = formElement.querySelector('.popup__input_data_job');
 
 function openPopup() {
     popup.classList.add('popup_opened');
-    nameInput.textContent = 'Жак-Ив Кусто';
-    jobInput.textContent = 'Исследователь океана';
+    name.value = nameInput.textContent;
+    description.value = jobInput.textContent;
 };
 function closePopup() {
     popup.classList.remove('popup_opened');
