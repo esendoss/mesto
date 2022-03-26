@@ -25,3 +25,31 @@ function formSubmitHandler (evt) {
 editButton.addEventListener('click', openPopup);
 exitButton.addEventListener('click', closePopup);
 formElement.addEventListener('submit', formSubmitHandler);
+
+/* Добавит 6 карточек */
+const initialCards = [
+    {
+      name: 'Алтай',
+      link: 'https://unsplash.com/photos/k1QPhErFvMw'
+    },
+    {
+      name: 'Уральские горы',
+      link: 'https://unsplash.com/photos/vm4Onc3qVAY'
+    },
+    {
+      name: 'Пик Звёздный',
+      link: 'https://unsplash.com/photos/GBa0kiHMhEM'
+    },
+    {
+      name: 'Исландия',
+      link: 'https://unsplash.com/photos/e9QfTnB647Y'
+    },
+    {
+      name: 'Кейп Таун',
+      link: 'https://unsplash.com/photos/joG5Wt96qBM'
+    },
+    {
+      name: 'Грейт Гейбл',
+      link: 'https://unsplash.com/photos/XyjIUYxJrGo'
+    }
+  ];
