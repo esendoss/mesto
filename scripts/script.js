@@ -53,3 +53,14 @@ const initialCards = [
       link: 'https://unsplash.com/photos/XyjIUYxJrGo'
     }
   ];
+
+/* создадим переменные для кнопки добавления и для инпутов 
+в попапе добавления изображения */
+let addButton = document.querySelector('.profile__add-button');
+let title = formElement.querySelector('.popup__input_data_title');
+let img = formElement.querySelector('.popup__input_data_img');
+
+/* Откртие/закртие попапа кнопки добавления */
+
+addButton.addEventListener('click', openPopup);
+addButton.addEventListener('click', closePopup);
