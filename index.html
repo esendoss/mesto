@@ -22,61 +22,20 @@
                     <button class="profile__add-button" type="button" aria-label="Добавить"></button>
             </section>
             <section class="gallery page__borders">
-                <div class="gallery__card">
-                    <img class="gallery__img" src="./images/altai.jpg" alt="Алтай">
-                    <div class="gallery__caption"> 
-                        <h2 class="gallery__place">Алтай</h2>
-                        <button class="gallery__like" type="button">
-                            <img src="./images/like.svg" alt="Лайк">
-                        </button>
-                    </div>
-                </div>
-                <div class="gallery__card">
-                    <img class="gallery__img" src="./images/ural-mountains.jpg" alt="Уральские горы">
-                    <div class="gallery__caption"> 
-                        <h2 class="gallery__place">Уральские горы</h2>
-                        <button class="gallery__like" type="button">
-                            <img src="./images/like.svg" alt="Лайк">
-                        </button>
-                    </div>
-                </div>
-                <div class="gallery__card">
-                    <img class="gallery__img" src="./images/pik-zvozdnyy.jpg" alt="Пик Звёздный">
-                    <div class="gallery__caption"> 
-                        <h2 class="gallery__place">Пик Звёздный</h2>
-                        <button class="gallery__like" type="button">
-                            <img src="./images/like.svg" alt="Лайк">
-                        </button>
-                    </div>
-                </div>
-                <div class="gallery__card">
-                    <img class="gallery__img" src="./images/Iceland.jpg" alt="Северное сияние в Исландии">
-                    <div class="gallery__caption"> 
-                        <h2 class="gallery__place">Исландия</h2>
-                        <button class="gallery__like" type="button">
-                            <img src="./images/like.svg" alt="Лайк">
-                        </button>
-                    </div>
-                </div>
-                <div class="gallery__card">
-                    <img class="gallery__img" src="./images/сape-town.jpg" alt="Корабль">
-                    <div class="gallery__caption"> 
-                        <h2 class="gallery__place">Кейп Таун</h2>
-                        <button class="gallery__like" type="button">
-                            <img src="./images/like.svg" alt="Лайк">
-                        </button>
-                    </div>
-                </div>
-                <div class="gallery__card">
-                    <img class="gallery__img" src="./images/great-gable.jpg" alt="Грейт Гейбл">
-                    <div class="gallery__caption"> 
-                        <h2 class="gallery__place">Грейт Гейбл</h2>
-                        <button class="gallery__like" type="button">
-                            <img class="gallery__like-sign" src="./images/like.svg" alt="Лайк">
-                        </button>
-                    </div>
-                </div>
+                
             </section>
+            <template id="gallery-cards">
+                <div class="card">
+                    <img class="card__img" src="" alt="">
+                    <button class="card__delete" type="button"></button>
+                    <div class="card__caption"> 
+                        <h2 class="card__place"></h2>
+                        <button class="card__like" type="button">
+                            <img src="./images/like.svg" alt="Лайк">
+                        </button>
+                    </div>
+                </div>
+            </template>
         </main>
         <footer class="footer page__borders">
             <p class="footer__author">&copy; 2022 Mesto Russia</p>
@@ -105,9 +64,19 @@
                 <h3 class="popup__title">Новое место</h3>
                 <input class="popup__input popup__input_data_title" type="text" id="title" value="" name="Название" placeholder="Название">
                 <input class="popup__input popup__input_data_img" type="text" id="img" value="" name="Ссылка на картинку" placeholder="Ссылка на картинку">
-                <button class="popup__submit" type="submit">Сохранить</button>
+                <button class="popup__submit popup__submit_add" type="submit" id="add-card">Сохранить</button>
             </form>
         </div>
+    </div>
+
+    <div class="popup popup_picture">
+            <form class="form" name="pic-form">
+                <button class="popup__exit popup__exit_pic" type="button">
+                    <img class="popup__exit-sign" src="./images/close-icon.svg" alt="Кнопка выхода">
+                </button>
+                <img class="popup__image" src="" alt="">
+                <h4 class="popup__name"></h4>
+            </form>
     </div>
 
     <script src="./scripts/script.js"></script>
