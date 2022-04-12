@@ -8,4 +8,7 @@
     width: 18px;
     height: 19px;   
     cursor: pointer;
+    position: relative;
+    top: -262px;
+    left: 244px;
 }

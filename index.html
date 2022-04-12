@@ -21,11 +21,9 @@
                 </div>
                     <button class="profile__add-button" type="button" aria-label="Добавить"></button>
             </section>
-            <section class="gallery page__borders">
-                
-            </section>
+            <ul class="gallery page__borders"></ul>
             <template id="gallery-cards">
-                <div class="card">
+                <li class="card">
                     <img class="card__img" src="" alt="">
                     <button class="card__delete" type="button"></button>
                     <div class="card__caption"> 
@@ -34,7 +32,7 @@
                             <img src="./images/like.svg" alt="Лайк">
                         </button>
                     </div>
-                </div>
+                </li>
             </template>
         </main>
         <footer class="footer page__borders">
@@ -55,9 +53,9 @@
         </div>
     </div>
   
-    <div class="popup popup_add">
+    <section class="popup popup_add">
         <div class="popup__container">
-            <form class="form" name="add-form">
+            <form class="form add-form" name="add-form">
                 <button class="popup__exit popup__exit_add" type="button">
                     <img class="popup__exit-sign" src="./images/close-icon.svg" alt="Кнопка выхода">
                 </button>
@@ -67,7 +65,7 @@
                 <button class="popup__submit popup__submit_add" type="submit" id="add-card">Сохранить</button>
             </form>
         </div>
-    </div>
+    </section>
 
     <div class="popup popup_picture">
             <form class="form" name="pic-form">
