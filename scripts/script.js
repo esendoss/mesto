@@ -1,40 +1,76 @@
 //переменные для попапов
-const editButton = document.querySelector('.profile__edit-button');
-const addButton = document.querySelector('.profile__add-button');
-const editPopup = document.querySelector('.popup_edit');
-const addPopup = document.querySelector('.popup_add');
+const profileEditButton = document.querySelector('.profile__edit-button');
+const profileAddButton = document.querySelector('.profile__add-button');
+const profileEditPopup = document.querySelector('.popup_edit');
+const profileAddPopup = document.querySelector('.popup_add');
 //переменные для кнопки выхода 
 const exitEditButton = document.querySelector('.popup__exit_edit');
 const exitImgButton = document.querySelector('.popup__exit_pic');
 const exitAddButton = document.querySelector('.popup__exit_add');
 //переменные данных в редакторе профиля
+const profileEditForm = document.querySelector('.edit-form');
 const nameInput = document.querySelector('.profile__name');
 const jobInput = document.querySelector('.profile__about');
-//контейнер
-const formElement = document.querySelector('.popup__container');
+const id = profileEditForm.querySelector('.popup__input_data_name');         
+const description = profileEditForm.querySelector('.popup__input_data_job'); 
+
 //функции открытия попапов
-editButton.addEventListener('click', () => {
-  editPopup.classList.toggle('popup_opened');
-  name.value = nameInput.textContent;
+/*
+
+const handleClick = (event) => { ... }
+button.addEventListener('click', handleClick)
+
+const popup = document.querySelector('.popup');
+function openPopup() {
+  popup.classList.add('popup_opened');
+};
+
+function closePopup() {
+  popup.classList.remove('popup_opened')
+};
+
+profileEditButton.addEventListener('click', () => {
+  profileEditPopup.classList.toggle('popup_opened');
+  id.value = nameInput.textContent;
+  description.value = jobInput.textContent;
+});
+
+profileEditButton.addEventListener('click', () => {
+  profileEditPopup.classList.toggle('popup_opened');
+  id.value = nameInput.textContent;
   description.value = jobInput.textContent;
 });
 exitEditButton.addEventListener('click', () => {
-  editPopup.classList.remove('popup_opened');
+  profileEditPopup.classList.remove('popup_opened');
 });
-addButton.addEventListener('click', () => {
-  addPopup.classList.toggle('popup_opened');
+profileAddButton.addEventListener('click', () => {
+  profileAddPopup.classList.toggle('popup_opened');
 });
 exitAddButton.addEventListener('click', () => {
-  addPopup.classList.remove('popup_opened');
+  profileAddPopup.classList.remove('popup_opened');
 });
+//функция открытия большой картинки
+function imageOpenPopup(card) {
+  cardPopup.classList.toggle('popup_opened');
+  popupImg.src =card.link;
+  popupName.textContent = card.name;
+  popupImg.alt =card.name;
+};
+//функция закрытия большой картинки
+function imageClosePopup(card) {
+  cardPopup.classList.remove('popup_opened');
+};
+*/
+
+
 //Функция сохранения данных профиля
 function formSubmitHandler (evt) {
     evt.preventDefault(); 
-    nameInput.textContent = name.value;
+    nameInput.textContent = id.value;
     jobInput.textContent = description.value;
-    editPopup.classList.remove('popup_opened');
+    profileEditPopup.classList.remove('popup_opened');
 };
-formElement.addEventListener('submit', formSubmitHandler);
+profileEditForm.addEventListener('submit', formSubmitHandler);
 //массив с данными для карточек 
 const initialCards = [
   {
@@ -71,18 +107,10 @@ const cardUrl = document.querySelector('.popup__input_data_img');
 const cardPopup = document.querySelector('.popup_picture');
 const popupImg = document.querySelector('.popup__image');
 const popupName = document.querySelector('.popup__name');
-//функция открытия большой картинки
-function imageOpenPopup(card) {
-  cardPopup.classList.toggle('popup_opened');
-  popupImg.src =card.link;
-  popupName.textContent = card.name;
-};
-//функция закрытия большой картинки
-function imageClosePopup(card) {
-  cardPopup.classList.remove('popup_opened');
-};
+
+const cardsTamplate = document.getElementById('gallery-cards');
+
 const createCard = (card) => {
-  const cardsTamplate = document.getElementById('gallery-cards');
   const cardElement = cardsTamplate.content.querySelector('.card').cloneNode(true);
   const cardImg = cardElement.querySelector('.card__img');
   const cardPlace = cardElement.querySelector('.card__place'); 
