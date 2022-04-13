@@ -39,7 +39,7 @@
             <p class="footer__author">&copy; 2022 Mesto Russia</p>
         </footer>
     </div>
-    <div class="popup popup_edit">
+    <section class="popup popup_edit">
         <div class="popup__container">
             <form class="form" name="edit-form">
                 <button class="popup__exit popup__exit_edit" type="button">
@@ -51,8 +51,7 @@
                 <button class="popup__submit" type="submit">Сохранить</button>
             </form>
         </div>
-    </div>
-  
+    </section>
     <section class="popup popup_add">
         <div class="popup__container">
             <form class="form add-form" name="add-form">
@@ -66,17 +65,17 @@
             </form>
         </div>
     </section>
-
-    <div class="popup popup_picture">
+    <section class="popup popup_picture">
             <form class="form" name="pic-form">
-                <button class="popup__exit popup__exit_pic" type="button">
-                    <img class="popup__exit-sign" src="./images/close-icon.svg" alt="Кнопка выхода">
-                </button>
-                <img class="popup__image" src="" alt="">
+                <div class="popup__container-image">
+                    <img class="popup__image" src="" alt="">
+                    <button class="popup__exit popup__exit_pic" type="button">
+                        <img class="popup__exit-sign" src="./images/close-icon.svg" alt="Кнопка выхода">
+                    </button>
+                </div>
                 <h4 class="popup__name"></h4>
             </form>
-    </div>
-
+    </section>
     <script src="./scripts/script.js"></script>
 </body>
 </html>

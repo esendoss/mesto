@@ -4,7 +4,10 @@
     height: 100%;
     position: fixed;
     top: 0;
-    display: none;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.7s, opacity 0.5s;
     align-items: center;
     justify-content: center;
 }

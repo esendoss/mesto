@@ -67,18 +67,17 @@ const addCardsForm = document.querySelector('.add-form');
 //переменные инпутов в редакторе профиля
 const cardTitle = document.querySelector('.popup__input_data_title');
 const cardUrl = document.querySelector('.popup__input_data_img');
-const like = document.querySelector('.card__like');
 //переменные для попапа большой картинки
 const cardPopup = document.querySelector('.popup_picture');
 const popupImg = document.querySelector('.popup__image');
 const popupName = document.querySelector('.popup__name');
-//функция открытия картинки
+//функция открытия большой картинки
 function imageOpenPopup(card) {
   cardPopup.classList.toggle('popup_opened');
   popupImg.src =card.link;
   popupName.textContent = card.name;
 };
-//функция закрытия картинки
+//функция закрытия большой картинки
 function imageClosePopup(card) {
   cardPopup.classList.remove('popup_opened');
 };
@@ -114,6 +113,7 @@ const addCard = (event) => {
   renderCard(card);
   cardTitle.value = '';
   cardUrl.value = '';
+  addPopup.classList.toggle('popup_opened');
 };
 const elements = initialCards.map(function(card) {
   return createCard(card);
