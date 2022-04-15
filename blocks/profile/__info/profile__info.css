@@ -6,6 +6,7 @@
     row-gap: 16px;
     max-width: 486px;
     min-width: 282px;
+    align-items: start;
 }
 @media screen and (max-width: 998px) {
     .profile__info {

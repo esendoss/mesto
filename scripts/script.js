@@ -4,7 +4,6 @@ const profileAddButton = document.querySelector('.profile__add-button');
 const profileEditPopup = document.querySelector('.popup_edit');
 const profileAddPopup = document.querySelector('.popup_add');
 const cardPopup = document.querySelector('.popup_picture');
-
 //переменные для кнопки выхода 
 const exitEditButton = document.querySelector('.popup__exit_edit');
 const exitImgButton = document.querySelector('.popup__exit_pic');
@@ -15,7 +14,6 @@ const nameInput = document.querySelector('.profile__name');
 const jobInput = document.querySelector('.profile__about');
 const id = profileEditForm.querySelector('.popup__input_data_name');         
 const description = profileEditForm.querySelector('.popup__input_data_job'); 
-
 //функции открытия попапов
 const openPopup = (popup) => { 
   popup.classList.add('popup_opened');
@@ -81,7 +79,6 @@ const cardUrl = document.querySelector('.popup__input_data_img');
 const popupImg = document.querySelector('.popup__image');
 const popupName = document.querySelector('.popup__name');
 const cardsTamplate = document.getElementById('gallery-cards');
-
 const createCard = (card) => {
   const cardElement = cardsTamplate.content.querySelector('.card').cloneNode(true);
   const cardImg = cardElement.querySelector('.card__img');
@@ -114,19 +111,18 @@ const renderCard = (card) => {
 };
 const addCard = (event) => {
   event.preventDefault();
+  closePopup(profileAddPopup);
   const card = {};
   card.name = cardTitle.value;
   card.link = cardUrl.value;
   renderCard(card);
   cardTitle.value = '';
   cardUrl.value = '';
-  openPopup(profileAddPopup);
 };
 const elements = initialCards.map(function(card) {
   return createCard(card);
 });
 galleryContainer.append(...elements);
 addCardsForm.addEventListener('submit', addCard);
-
 
 
