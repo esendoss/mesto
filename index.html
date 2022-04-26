@@ -46,9 +46,9 @@
                     <img class="popup__exit-sign" src="./images/close-icon.svg" alt="Кнопка выхода">
                 </button>
                 <h3 class="popup__title">Редактировать профиль</h3>
-                <input class="popup__input popup__input_data_name" type="text" id="name-input" value="" name="Жак-Ив Кусто" minlength="2" maxlength="40" required>
+                <input class="popup__input popup__input_data_name" type="text" id="name" value="" placeholder="Имя" name="Жак-Ив Кусто" minlength="2" maxlength="40" required>
                 <span class="popup__input-error name-error" id="name-error"></span>
-                <input class="popup__input popup__input_data_job" type="text" id="job-input" value="" name="Исследователь океана" minlength="2" maxlength="200" required>
+                <input class="popup__input popup__input_data_job" type="text" id="job" value="" placeholder="О себе" name="Исследователь океана" minlength="2" maxlength="200" required>
                 <span class="popup__input-error job-error" id="job-error"></span>
                 <button class="popup__submit" type="submit">Сохранить</button>
             </form>
@@ -64,7 +64,7 @@
                 <input class="popup__input popup__input_data_title" type="text" id="title" value="" name="Название" placeholder="Название" minlength="2" maxlength="30" required>
                 <span class="popup__input-error title-error" id="title-error"></span>
                 <input class="popup__input popup__input_data_img" type="url" id="img" value="" name="Ссылка на картинку" placeholder="Ссылка на картинку" required>
-                <span class="popup__input-error url-error" id="url-error"></span>
+                <span class="popup__input-error url-error" id="url-error">Введите URL.</span>
                 <button class="popup__submit popup__submit_add" type="submit" id="add-card">Сохранить</button>
             </form>
         </div>

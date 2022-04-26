@@ -14,6 +14,17 @@ const nameInput = document.querySelector('.profile__name');
 const jobInput = document.querySelector('.profile__about');
 const id = profileEditForm.querySelector('.popup__input_data_name');
 const description = profileEditForm.querySelector('.popup__input_data_job');
+
+const galleryContainer = document.querySelector('.gallery');
+const addCardsForm = document.querySelector('.add-form');
+//переменные инпутов в редакторе профиля
+const cardTitle = document.querySelector('.popup__input_data_title');
+const cardUrl = document.querySelector('.popup__input_data_img');
+//переменные для попапа большой картинки
+const popupImg = document.querySelector('.popup__image');
+const popupName = document.querySelector('.popup__name');
+const cardsTamplate = document.getElementById('gallery-cards');
+
 //функции открытия и закрытия попапов
 //закрытие кликом на оверлей
 const closePopupOverlay = (evt) => {
@@ -87,15 +98,7 @@ const initialCards = [
     link: 'https://images.unsplash.com/photo-1647185256013-7726d49ca3c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80'
   }
 ];
-const galleryContainer = document.querySelector('.gallery');
-const addCardsForm = document.querySelector('.add-form');
-//переменные инпутов в редакторе профиля
-const cardTitle = document.querySelector('.popup__input_data_title');
-const cardUrl = document.querySelector('.popup__input_data_img');
-//переменные для попапа большой картинки
-const popupImg = document.querySelector('.popup__image');
-const popupName = document.querySelector('.popup__name');
-const cardsTamplate = document.getElementById('gallery-cards');
+//создание карточки
 const createCard = (card) => {
   const cardElement = cardsTamplate.content.querySelector('.card').cloneNode(true);
   const cardImg = cardElement.querySelector('.card__img');
