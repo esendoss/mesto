@@ -41,7 +41,7 @@
     </div>
     <section class="popup popup_edit">
         <div class="popup__container">
-            <form class="form edit-form" name="edit-form" novalidate>
+            <form class="form form_validate edit-form" name="edit-form" novalidate>
                 <button class="popup__exit popup__exit_edit" type="button">
                     <img class="popup__exit-sign" src="./images/close-icon.svg" alt="Кнопка выхода">
                 </button>
@@ -56,14 +56,14 @@
     </section>
     <section class="popup popup_add">
         <div class="popup__container">
-            <form class="form add-form" name="add-form" novalidate>
+            <form class="form form_validate add-form" name="add-form" novalidate>
                 <button class="popup__exit popup__exit_add" type="button">
                     <img class="popup__exit-sign" src="./images/close-icon.svg" alt="Кнопка выхода">
                 </button>
                 <h3 class="popup__title">Новое место</h3>
                 <input class="popup__input popup__input_data_title" type="text" id="title" value="" name="Название" placeholder="Название" minlength="2" maxlength="30" required>
                 <span class="popup__input-error title-error" id="title-error"></span>
-                <input class="popup__input popup__input_data_img" type="url" id="img" value="" name="Ссылка на картинку" placeholder="Ссылка на картинку" required>
+                <input class="popup__input popup__input_data_img" type="url" id="url" value="" name="Ссылка на картинку" placeholder="Ссылка на картинку" required>
                 <span class="popup__input-error url-error" id="url-error">Введите URL.</span>
                 <button class="popup__submit popup__submit_add" type="submit" id="add-card">Сохранить</button>
             </form>

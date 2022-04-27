@@ -1,5 +1,5 @@
 const formValidation = {
-  formSelector: '.form',
+  formSelector: '.form_validate',
   formInput: '.popup__input',
   buttonElement: '.popup__submit',
   inactiveButtonClass: 'popup__submit_disabled',
@@ -66,11 +66,6 @@ function toggleButtonState (inputList, buttonElement, config) {
     buttonElement.disabled = false;
   } 
 };
-const disableSubmitButton = (buttonElement, config) => {
-  buttonElement.classList.add(config.inactiveButtonClass);
-  buttonElement.disabled = true;
-};
-
 function reset() {
   const errorInputList = Array.from(document.querySelectorAll('.popup__input'));
   const errorlist = Array.from(document.querySelectorAll('.popup__error_visible'));
