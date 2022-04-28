@@ -44,7 +44,6 @@ const setEventListeners = (formElement, config) => {
     inputElement.addEventListener('input', function () {
       checkInputValidity(formElement, inputElement, config);
       toggleButtonState(inputList, buttonElement, config);
-
     });
   });
 };
@@ -66,9 +65,15 @@ function toggleButtonState (inputList, buttonElement, config) {
     buttonElement.disabled = false;
   } 
 };
-function reset() {
-  const errorInputList = Array.from(document.querySelectorAll('.popup__input'));
-  const errorlist = Array.from(document.querySelectorAll('.popup__error_visible'));
+//деактивировать кнопку сохранения
+const disableSubmitButton = (buttonElement) => {
+  buttonElement.disabled = true;
+  buttonElement.classList.add(config.inactiveButtonClass);
+};
+
+function reset(config) {
+  const errorInputList = Array.from(document.querySelectorAll(config.formInput));
+  const errorlist = Array.from(document.querySelectorAll(config.errorClass));
   errorlist.forEach((error) => {
     error.classList.remove('popup__error_visible');
     error.textContent = "";

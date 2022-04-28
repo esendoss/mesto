@@ -45,32 +45,34 @@ const openPopup = (popup) => {
   document.addEventListener('click', closePopupOverlay);
 };
 const closePopup = (popup) => {
-  popup.classList.remove('popup_opened')
+  popup.classList.remove('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
+  document.addEventListener('click', closePopupOverlay);
 };
-profileEditButton.addEventListener('click', () => {
+profileEditButton.addEventListener('click', (config) => {
   id.value = nameInput.textContent;
   description.value = jobInput.textContent;
   openPopup(profileEditPopup);
-  reset();
+  reset(config);
 });
 exitEditButton.addEventListener('click', () => {
   closePopup(profileEditPopup);
 });
-profileAddButton.addEventListener('click', () => {
+profileAddButton.addEventListener('click', (config) => {
   openPopup(profileAddPopup);
-  reset();
+  reset(config);
 });
 exitAddButton.addEventListener('click', () => {
   closePopup(profileAddPopup);
 });
 //Функция сохранения данных профиля
-function formSubmitHandler(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   closePopup(profileEditPopup);
   nameInput.textContent = id.value;
   jobInput.textContent = description.value;
 };
-profileEditForm.addEventListener('submit', formSubmitHandler);
+profileEditForm.addEventListener('submit', handleProfileFormSubmit);
 //массив с данными для карточек 
 const initialCards = [
   {
@@ -136,8 +138,8 @@ const addCard = (event) => {
   card.name = cardTitle.value;
   card.link = cardUrl.value;
   renderCard(card);
-  cardTitle.value = '';
-  cardUrl.value = '';
+  event.target.reset();
+  disableSubmitButton(event.target.querySelector('.popup__submit_disabled'));
 };
 const elements = initialCards.map(function (card) {
   return createCard(card);
