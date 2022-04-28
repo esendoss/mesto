@@ -46,8 +46,8 @@ const openPopup = (popup) => {
 };
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
-  document.addEventListener('keydown', closePopupEsc);
-  document.addEventListener('click', closePopupOverlay);
+  document.removeEventListener('keydown', closePopupEsc);
+  document.removeEventListener('click', closePopupOverlay);
 };
 profileEditButton.addEventListener('click', (config) => {
   id.value = nameInput.textContent;
@@ -139,7 +139,7 @@ const addCard = (event) => {
   card.link = cardUrl.value;
   renderCard(card);
   event.target.reset();
-  disableSubmitButton(event.target.querySelector('.popup__submit_disabled'));
+  disableSubmitButton(event.target.querySelector('.popup__submit'), formValidation);
 };
 const elements = initialCards.map(function (card) {
   return createCard(card);

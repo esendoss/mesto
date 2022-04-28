@@ -66,7 +66,7 @@ function toggleButtonState (inputList, buttonElement, config) {
   } 
 };
 //деактивировать кнопку сохранения
-const disableSubmitButton = (buttonElement) => {
+const disableSubmitButton = (buttonElement, config) => {
   buttonElement.disabled = true;
   buttonElement.classList.add(config.inactiveButtonClass);
 };
