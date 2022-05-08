@@ -1,9 +1,9 @@
 export default class FormValidator {
-    constructor(formValidation, formElement) {
-        this._formValidation = formValidation;
+    constructor(validationConfig, formElement) {
+        this._validationConfig = validationConfig;
         this._form = formElement;
-        this._inputList = Array.from(formElement.querySelectorAll(this._formValidation.formInput));
-        this._buttonElement = formElement.querySelector(this._formValidation.buttonElement);
+        this._inputList = Array.from(formElement.querySelectorAll(this._validationConfig.formInput));
+        this._buttonElement = formElement.querySelector(this._validationConfig.buttonElement);
         this._spanList = formElement.querySelectorAll('.popup__input-error');
     }
     //метод валидации
@@ -16,14 +16,14 @@ export default class FormValidator {
     //методы показать/cкрыть ошибку
     _showInputError(formElement, inputElement, errorMessage) {
         const error = formElement.querySelector(`.${inputElement.id}-error`);
-        inputElement.classList.add(this._formValidation.inputErrorClass);
+        inputElement.classList.add(this._validationConfig.inputErrorClass);
         error.textContent = errorMessage;
-        error.classList.add(this._formValidation.errorClass);
+        error.classList.add(this._validationConfig.errorClass);
     };
     _hideInputError(formElement, inputElement) {
         const error = formElement.querySelector(`.${inputElement.id}-error`);
-        inputElement.classList.remove(this._formValidation.inputErrorClass);
-        error.classList.remove(this._formValidation.errorClass);
+        inputElement.classList.remove(this._validationConfig.inputErrorClass);
+        error.classList.remove(this._validationConfig.errorClass);
         error.textContent = '';
     };
     //Проверка на валидность 
@@ -43,10 +43,10 @@ export default class FormValidator {
     };
     toggleButtonState() {
         if (this._hasInvalidInput()) {
-            this._buttonElement.classList.add(this._formValidation.inactiveButtonClass);
+            this._buttonElement.classList.add(this._validationConfig.inactiveButtonClass);
             this._buttonElement.disabled = true;
         } else {
-            this._buttonElement.classList.remove(this._formValidation.inactiveButtonClass);
+            this._buttonElement.classList.remove(this._validationConfig.inactiveButtonClass);
             this._buttonElement.disabled = false;
         }
     };

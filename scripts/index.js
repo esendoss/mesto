@@ -1,13 +1,14 @@
 import { initialCards } from "./initialCards.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
+import { cardPopup } from "../utils/constants.js";
+import { openPopup, closePopup } from "../utils/utils.js";
 
 //переменные для попапов
 const profileEditButton = document.querySelector('.profile__edit-button');
 const profileAddButton = document.querySelector('.profile__add-button');
 const profileEditPopup = document.querySelector('.popup_edit');
 const profileAddPopup = document.querySelector('.popup_add');
-export const cardPopup = document.querySelector('.popup_picture');
 //переменные для кнопки выхода 
 const exitEditButton = document.querySelector('.popup__exit_edit');
 const exitImgButton = document.querySelector('.popup__exit_pic');
@@ -16,7 +17,7 @@ const exitAddButton = document.querySelector('.popup__exit_add');
 const profileEditForm = document.querySelector('.edit-form');
 const nameInput = document.querySelector('.profile__name');
 const jobInput = document.querySelector('.profile__about');
-const id = profileEditForm.querySelector('.popup__input_data_name');
+const userName = profileEditForm.querySelector('.popup__input_data_name');
 const description = profileEditForm.querySelector('.popup__input_data_job');
 
 const galleryContainer = document.querySelector('.gallery');
@@ -24,12 +25,8 @@ const addCardsForm = document.querySelector('.add-form');
 //переменные инпутов в редакторе профиля
 const cardTitle = document.querySelector('.popup__input_data_title');
 const cardUrl = document.querySelector('.popup__input_data_img');
-//переменные для попапа большой картинки
-export const popupImg = document.querySelector('.popup__image');
-export const popupName = document.querySelector('.popup__name');
-const cardsTamplate = document.getElementById('gallery-cards');
 
-const formValidation = {
+const validationConfig = {
   formSelector: '.form_validate',
   formInput: '.popup__input',
   buttonElement: '.popup__submit',
@@ -40,55 +37,38 @@ const formValidation = {
 
 //Валидация форм
 //редактор профиля
-const formProfileValidate = new FormValidator(formValidation, profileEditForm);
+const formProfileValidate = new FormValidator(validationConfig, profileEditForm);
 formProfileValidate.enableValidation();
 //добавление карточки
-const formCardValidate = new FormValidator(formValidation, addCardsForm);
+const formCardValidate = new FormValidator(validationConfig, addCardsForm);
 formCardValidate.enableValidation();
 
-const renderCard = (card, galleryContainer) => {
-  galleryContainer.prepend(card);
+const createCard = (galleryCard) => {
+  const card = new Card(galleryCard, '#gallery-cards');
+  const cardElement = card.generateCard();
+  return cardElement;
 };
 
-initialCards.forEach(galleryCard => {
-  const createCard = new Card(galleryCard, '#gallery-cards');
-  renderCard(createCard.generateCard(), galleryContainer);
+initialCards.forEach((galleryCard) => {
+  const createCardObj = createCard(galleryCard);
+  galleryContainer.append(createCardObj);
 });
+
+const renderCard = (card) => {
+  const createNewCard = createCard(card)
+  galleryContainer.prepend(createNewCard);
+};
 
 const addCard = () => {
   closePopup(profileAddPopup);
   const newCard = {};
   newCard.name = cardTitle.value;
   newCard.link = cardUrl.value;
-  const card = new Card(newCard, '#gallery-cards');
-  renderCard(card.generateCard(), galleryContainer);
+  renderCard(newCard);
 };
-//функции открытия и закрытия попапов
-//закрытие кликом на оверлей
-const closePopupOverlay = (evt) => {
-  if (evt.target.classList.contains('popup')) {
-    closePopup(evt.target);
-  }
-};
-//закрытие при нажатии на кнопку Esc
-const closePopupEsc = (evt) => {
-  if (evt.key === 'Escape') {
-    const currentOpenedPopup = document.querySelector('.popup_opened');
-    closePopup(currentOpenedPopup);
-  }
-};
-export const openPopup = (popup) => {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupEsc);
-  document.addEventListener('click', closePopupOverlay);
-};
-const closePopup = (popup) => {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closePopupEsc);
-  document.removeEventListener('click', closePopupOverlay);
-};
+
 profileEditButton.addEventListener('click', () => {
-  id.value = nameInput.textContent;
+  userName.value = nameInput.textContent;
   description.value = jobInput.textContent;
   formProfileValidate.toggleButtonState();
   formProfileValidate.deleteError();
@@ -115,7 +95,7 @@ exitImgButton.addEventListener('click', () => {
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   closePopup(profileEditPopup);
-  nameInput.textContent = id.value;
+  nameInput.textContent = userName.value;
   jobInput.textContent = description.value;
 };
 profileEditForm.addEventListener('submit', handleProfileFormSubmit);

@@ -1,4 +1,6 @@
-import { openPopup, popupImg, popupName, cardPopup } from "./index.js";
+import { openPopup } from "../utils/utils.js";
+import { cardPopup, popupImg, popupName } from "../utils/constants.js";
+
 export default class Card {
     constructor(data, cardSelector) {
         this._name = data.name;
