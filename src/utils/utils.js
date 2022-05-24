@@ -1,4 +1,4 @@
-
+/*
 const openPopup = (popup) => {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupEsc);
@@ -25,3 +25,4 @@ const closePopup = (popup) => {
 };
 
 export { openPopup, closePopupOverlay, closePopupEsc, closePopup };
+*/
