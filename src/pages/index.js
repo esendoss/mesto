@@ -34,14 +34,14 @@ const popupProfile = new PopupWithForm({
 });
 popupProfile.setEventListeners();
 
-function openPopupProfile() {
+profileEditButton.addEventListener('click', () => {
   formProfileValidate.resetValidation();
   const userData = userInfo.getUserInfo();
   nameInput.value = userData.userName;
   jobInput.value = userData.description;
   popupProfile.open();
-};
-profileEditButton.addEventListener('click', openPopupProfile);
+}
+);
 
 //Добавление новой карточки
 const popupAddForm = new PopupWithForm({
