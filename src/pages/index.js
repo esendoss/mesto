@@ -80,13 +80,13 @@ const createCard = (item) => {
 
 const cardGallery = '.gallery';
 
-const section = new Section({
+const cardsContainer = new Section({
   items: initialCards,
   renderer: (item) => {
     const newItem = createCard(item);
-    section.addItem(newItem);
+    cardsContainer.addItem(newItem);
   }
 }, cardGallery);
 
 
-section.render();
+cardsContainer.render();
