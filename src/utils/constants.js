@@ -27,21 +27,3 @@ export const profileAddForm = profileAddPopup.querySelector('.form');
 
 export const userNameInput = document.querySelector('.profile__name');
 export const descriptionInput = document.querySelector('.profile__about');
-/*
-
-//переменные для кнопки выхода 
-const exitEditButton = document.querySelector('.popup__exit_edit');
-const exitImgButton = document.querySelector('.popup__exit_pic');
-const exitAddButton = document.querySelector('.popup__exit_add');
-//переменные данных в редакторе профиля
-const profileEditForm = document.querySelector('.edit-form');
-
-
-
-const galleryContainer = document.querySelector('.gallery');
-const addCardsForm = document.querySelector('.add-form');
-//переменные инпутов в редакторе профиля
-const cardTitle = document.querySelector('.popup__input_data_title');
-const cardUrl = document.querySelector('.popup__input_data_img');
-
-*/

@@ -6,11 +6,12 @@ export default class Card {
         this._handleCardClick = handleCardClick;
     }
     _getTemplate() {
-        return document
+        const card = document
             .querySelector(this._cardSelector)
             .content
             .querySelector('.card')
-            .cloneNode(true)
+            .cloneNode(true);
+        return card;
     }
     //лайк
     _like(evt) {
@@ -24,16 +25,14 @@ export default class Card {
 
     generateCard() {
         this._card = this._getTemplate();
-        this._setEventListeners();
-
-        this._cardImg = this._card.querySelector('.card__img');
+        
         this._card.querySelector('.card__place').textContent = this._name;
-        this._cardImg.src = this._link;
-        this._cardImg.alt = this._name;
+        this._card.querySelector('.card__img').src = this._link;
+        this._card.querySelector('.card__img').alt = this._name;
+        this._setEventListeners();
 
         return this._card;
     }
-    //Слушатели
     _setEventListeners = () => {
         this._card.querySelector('.card__like').addEventListener('click', (evt) => {
             this._like(evt);

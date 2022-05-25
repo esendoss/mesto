@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>mesto</title>
 </head>
 <body class="page">
     <div class="page__box">
         <header class="header page__borders">
-            <img class="header__logo" src="./images/logo.svg" alt="Логотип">
+            <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип">
         </header>
         <main class="main">
             <section class="profile page__borders">
                 <div class="profile__info">
-                    <img class="profile__avatar" src="./images/Avatar.png" alt="Аватарка">
+                    <img class="profile__avatar" src="<%=require('./images/Avatar.png')%>" alt="Аватарка">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <button class="profile__edit-button" type="button" aria-label="Редактировать"></button>
                     <p class="profile__about">Исследователь океана</p>
@@ -29,7 +28,7 @@
                     <div class="card__caption"> 
                         <h2 class="card__place"></h2>
                         <button class="card__like" type="button">
-                            <img src="./images/like.svg" alt="Лайк">
+                            <img src="<%=require('./images/like.svg')%>" alt="Лайк">
                         </button>
                     </div>
                 </li>
@@ -43,7 +42,7 @@
         <div class="popup__container">
             <form class="form form_validate edit-form" name="edit-form" novalidate>
                 <button class="popup__exit popup__exit_edit" type="button">
-                    <img class="popup__exit-sign" src="./images/close-icon.svg" alt="Кнопка выхода">
+                    <img class="popup__exit-sign" src="<%=require('./images/close-icon.svg')%>" alt="Кнопка выхода">
                 </button>
                 <h3 class="popup__title">Редактировать профиль</h3>
                 <input class="popup__input popup__input_data_name" type="text" id="name" value="" placeholder="Имя" name="userName" minlength="2" maxlength="40" required>
@@ -58,7 +57,7 @@
         <div class="popup__container">
             <form class="form form_validate add-form" name="add-form" novalidate>
                 <button class="popup__exit popup__exit_add" type="button">
-                    <img class="popup__exit-sign" src="./images/close-icon.svg" alt="Кнопка выхода">
+                    <img class="popup__exit-sign" src="<%=require('./images/close-icon.svg')%>" alt="Кнопка выхода">
                 </button>
                 <h3 class="popup__title">Новое место</h3>
                 <input class="popup__input popup__input_data_title" type="text" id="title" value="" name="Название" placeholder="Название" minlength="2" maxlength="30" required>
@@ -74,12 +73,11 @@
                 <div class="popup__container-image">
                     <img class="popup__image" src="#" alt="">
                     <button class="popup__exit popup__exit_pic" type="button">
-                        <img class="popup__exit-sign" src="./images/close-icon.svg" alt="Кнопка выхода">
+                        <img class="popup__exit-sign" src="<%=require('./images/close-icon.svg')%>" alt="Кнопка выхода">
                     </button>
                 </div>
                 <h4 class="popup__name"></h4>
             </form>
     </section>
-    <script type="module" src="./pages/index.js"></script>
 </body>
 </html>

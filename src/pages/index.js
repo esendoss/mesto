@@ -1,15 +1,14 @@
+import "./index.css"
 import { initialCards } from "../components/initialCards.js";
 import {
   validationConfig,
-  profileEditPopup,
   profileEditForm,
+  profileEditButton,
   nameInput,
   jobInput,
-  userNameInput,
-  descriptionInput,
   profileAddForm,
-  profileAddPopup
-} from "../utils/constants.js";
+  profileAddButton
+} from "../utils/constants";
 
 import UserInfo from "../components/UserInfo.js";
 import Card from "../components/Card.js";
@@ -18,7 +17,7 @@ import FormValidator from "../components/FormValidator.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 
-const userInfo = new UserInfo({ userNameInput, descriptionInput });
+const userInfo = new UserInfo('.profile__name', '.profile__about');
 const popupImage = new PopupWithImage('.popup_picture');
 popupImage.setEventListeners();
 
@@ -27,9 +26,9 @@ function handleCardClick(link, name) {
 }
 //Редактор профиля
 const popupProfile = new PopupWithForm({
-  popupSelector: profileEditPopup,
+  popupSelector: '.popup_edit',
   submitForm: (data) => {
-    userInfo.setUserInfo(data.username, data.userdescription);
+    userInfo.setUserInfo(data.name, data.description);
     popupProfile.close();
   }
 });
@@ -42,17 +41,17 @@ function openPopupProfile() {
   jobInput.value = userData.description;
   popupProfile.open();
 };
-profileEditForm.addEventListener('click', openPopupProfile);
+profileEditButton.addEventListener('click', openPopupProfile);
 
 //Добавление новой карточки
 const popupAddForm = new PopupWithForm({
-  popupSelector: profileAddPopup,
+  popupSelector: '.popup_add',
   submitForm: (data) => {
     const newItem = {
       name: data.title,
       link: data.caption
     }
-    const newCard = createCard(newItem);
+    const newCard = generateCard(newItem);
     section.addItem(newCard);
     popupAddForm.close();
   }
@@ -63,7 +62,7 @@ function openPopupCard() {
   formCardValidate.resetValidation();
   popupAddForm.open();
 };
-profileAddForm.addEventListener('click', openPopupCard);
+profileAddButton.addEventListener('click', openPopupCard);
 
 //Валидация форм
 //редактор профиля
@@ -72,6 +71,12 @@ formProfileValidate.enableValidation();
 //добавление карточки
 const formCardValidate = new FormValidator(validationConfig, profileAddForm);
 formCardValidate.enableValidation();
+
+const createCard = (item) => {
+  const card = new Card(item, '#gallery-cards', handleCardClick);
+  const cardElement = card.generateCard();
+  return cardElement;
+};
 
 const cardGallery = '.gallery';
 
@@ -83,10 +88,5 @@ const section = new Section({
   }
 }, cardGallery);
 
-const createCard = (item) => {
-  const card = new Card(item, '#gallery-cards', handleCardClick);
-  const cardElement = card.generateCard();
-  return cardElement;
-};
 
 section.render();
