@@ -57,7 +57,7 @@ const popupAddForm = new PopupWithForm({
   }
 });
 popupAddForm.setEventListeners();
-console.log(popupAddForm);
+
 profileAddButton.addEventListener('click', () => {
   formCardValidate.resetValidation();
   popupAddForm.open();
