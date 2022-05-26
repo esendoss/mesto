@@ -15,8 +15,8 @@ export const validationConfig = {
 };
 
 export const profileEditPopup = document.querySelector('.popup_edit');
-export const profileEditButton = document.querySelector('.profile__edit-button');
 export const profileEditForm = profileEditPopup.querySelector('.form');
+export const profileEditButton = document.querySelector('.profile__edit-button');
 
 export const nameInput = profileEditForm.querySelector('.popup__input[name = userName]');
 export const jobInput = profileEditForm.querySelector('.popup__input[name = description]');

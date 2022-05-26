@@ -37,7 +37,7 @@ popupProfile.setEventListeners();
 profileEditButton.addEventListener('click', () => {
   formProfileValidate.resetValidation();
   const userData = userInfo.getUserInfo();
-  nameInput.value = userData.userName;
+  nameInput.value = userData.name;
   jobInput.value = userData.description;
   popupProfile.open();
 }
@@ -49,20 +49,19 @@ const popupAddForm = new PopupWithForm({
   submitForm: (data) => {
     const newItem = {
       name: data.title,
-      link: data.caption
+      link: data.url
     }
-    const newCard = generateCard(newItem);
-    section.addItem(newCard);
+    const newCard = createCard(newItem);
+    cardsContainer.addItem(newCard);
     popupAddForm.close();
   }
 });
 popupAddForm.setEventListeners();
-
-function openPopupCard() {
+console.log(popupAddForm);
+profileAddButton.addEventListener('click', () => {
   formCardValidate.resetValidation();
   popupAddForm.open();
-};
-profileAddButton.addEventListener('click', openPopupCard);
+});
 
 //Валидация форм
 //редактор профиля
@@ -74,7 +73,7 @@ formCardValidate.enableValidation();
 
 const createCard = (item) => {
   const card = new Card(item, '#gallery-cards', handleCardClick);
-  const cardElement = card.generateCard();
+  const cardElement = card.createCard();
   return cardElement;
 };
 

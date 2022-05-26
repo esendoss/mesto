@@ -23,7 +23,7 @@ export default class Card {
         this._card = null;
     }
 
-    generateCard() {
+    createCard() {
         this._card = this._getTemplate();
         this._cardImg = this._card.querySelector('.card__img');
         this._card.querySelector('.card__place').textContent = this._name;
