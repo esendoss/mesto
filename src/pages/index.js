@@ -28,7 +28,7 @@ function handleCardClick(link, name) {
 const popupProfile = new PopupWithForm({
   popupSelector: '.popup_edit',
   submitForm: (data) => {
-    userInfo.setUserInfo(data.name, data.description);
+    userInfo.setUserInfo(data.userName, data.description);
     popupProfile.close();
   }
 });

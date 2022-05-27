@@ -33,7 +33,7 @@ export default class Card {
 
         return this._card;
     }
-    _setEventListeners = () => {
+    _setEventListeners() {
         this._card.querySelector('.card__like').addEventListener('click', (evt) => {
             this._like(evt);
         });
