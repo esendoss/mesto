@@ -27,3 +27,7 @@ export const profileAddForm = profileAddPopup.querySelector('.form');
 
 export const userNameInput = document.querySelector('.profile__name');
 export const descriptionInput = document.querySelector('.profile__about');
+
+export const avatar = document.querySelector('.profile__avatar');
+export const profileAvatarPopup = document.querySelector('.popup_avatar');
+export const profileAvatarForm = profileAvatarPopup.querySelector('.form');

@@ -1,7 +1,7 @@
 .card__delete {
     background-image: url(../../../images/Trash.svg);
     background-color: transparent;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     border: 0;
