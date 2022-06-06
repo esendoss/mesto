@@ -10,14 +10,14 @@
 .page__box{display:flex;flex-direction:column;margin:0 auto;max-width:880px;min-height:100vh;min-width:320px;padding:45px 0 60px}@media screen and (max-width:620px){.page__box{padding:28px 0 36px}}
 @media screen and (max-width:905px){.page__borders{padding-left:19px;padding-right:19px}}
 .header__logo{padding-bottom:41px}@media screen and (max-width:680px){.header__logo{height:24.4px;padding-bottom:31.6px;padding-left:8px;width:103.74px}}
-.profile__avatar{border-radius:50%;grid-column:1;grid-row:1/3;height:120px;-o-object-fit:contain;object-fit:contain;width:120px}@media screen and (max-width:846px){.profile__avatar{grid-area:avatar;padding-bottom:8px}}
+.profile__avatar{border-radius:50%;grid-column:1;grid-row:1/3;height:120px;-o-object-fit:contain;object-fit:contain;transition:all .3s ease;width:120px}@media screen and (max-width:846px){.profile__avatar{grid-area:avatar;padding-bottom:8px}}.profile__avatar:hover{cursor:url(ea8cca3b96edda24ec96.svg),pointer;opacity:.2}
 .profile__info{align-items:start;-moz-column-gap:18px;column-gap:18px;display:grid;grid-template-columns:120px auto 24px;grid-template-rows:61px 43px;max-width:486px;min-width:282px;row-gap:16px}@media screen and (max-width:998px){.profile__info{padding-bottom:36px}}@media screen and (max-width:846px){.profile__info{grid-gap:14px 10px;align-items:center;grid-template-areas:"avatar . " "name button" "about . ";grid-template-columns:189px 18px;grid-template-rows:auto 26px;justify-content:center;justify-items:center}}
 .profile__name{font-size:42px;font-weight:500;line-height:48px;margin:0;max-width:294px;overflow:hidden;padding-left:12px;padding-top:22px;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:846px){.profile__name{font-size:27px;grid-area:name;line-height:33px;max-width:189px;padding-left:0;padding-top:0}}
 .profile__about{font-size:18px;font-weight:400;line-height:22px;margin:0;max-width:336px;overflow:hidden;padding-left:12px;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:846px){.profile__about{font-size:14px;grid-area:about;line-height:17px;max-width:282px;padding-left:0}}
 .profile__edit-button{background-color:transparent;background-image:url(686ec1de24fcfb5046fa.svg);background-position:50%;background-repeat:no-repeat;border:1px solid #fff;cursor:pointer;height:24px;margin-top:37px;width:24px}.profile__edit-button:hover{opacity:.6}@media screen and (max-width:846px){.profile__edit-button{grid-area:button;height:18px;margin-top:8px;width:18px}}
 .profile__add-button{background-color:transparent;background-image:url(954d1ecf00812f229770.svg);background-position:50%;background-repeat:no-repeat;border:2px solid #fff;border-radius:2px;cursor:pointer;height:50px;width:150px}.profile__add-button:hover{opacity:.6}@media screen and (max-width:998px){.profile__add-button{background-image:url(e932ceb74cf1e5663fa8.svg);min-width:282px}}
 .card__img{border-radius:10px 10px 0 0;cursor:pointer;height:282px;-o-object-fit:cover;object-fit:cover;width:282px}.card__img:hover{opacity:.8}
-.card__delete{align-items:center;background-color:transparent;background-image:url(4af3841e0d351a5225a0.svg);border:0;cursor:pointer;display:flex;height:19px;justify-content:center;left:244px;position:relative;top:-262px;width:18px}.card__delete:hover{opacity:.6}
+.card__delete{align-items:center;background-color:transparent;background-image:url(4af3841e0d351a5225a0.svg);border:0;cursor:pointer;display:none;height:19px;justify-content:center;left:244px;position:relative;top:-262px;width:18px}.card__delete:hover{opacity:.6}
 .card__caption{align-items:center;display:flex;justify-content:space-between;padding:25px 21px 31px 15px}
 .card__place{font-size:24px;font-weight:900;line-height:29px;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .card__like{align-items:center;background:none;border:0;cursor:pointer;display:flex;height:19px;justify-content:center;width:22px}.card__like:hover{opacity:.5}
@@ -35,6 +35,7 @@
 .popup__image{margin:auto;max-height:75vh;max-width:75vw;-o-object-fit:contain;object-fit:contain;position:relative}
 .popup__name{color:#fff;font-size:12px;font-weight:400;line-height:15px;margin-bottom:0;margin-top:10px}
 .card__like_active{background-image:url(08af6fbb37d19d4aa333.svg)}
+.card__delete_active{display:flex}
 .popup_opened{opacity:1;visibility:visible}
 .popup_opened-add{display:flex}
 
