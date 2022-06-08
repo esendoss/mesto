@@ -32,8 +32,6 @@ export const avatar = document.querySelector('.profile__avatar');
 export const profileAvatarPopup = document.querySelector('.popup_avatar');
 export const profileAvatarForm = profileAvatarPopup.querySelector('.form');
 
-export const likeButton = document.querySelector('.card__like');
-
 const initialCards = [
     {
       name: 'Алтай',

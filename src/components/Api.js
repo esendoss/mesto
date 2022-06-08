@@ -59,8 +59,8 @@ export default class Api {
     })
     .then(this._checkError)
   }
-  deleteCard(id) {
-    return fetch(this._url + `/cards/${id}`, {
+  deleteCard(cardId) {
+    return fetch(this._url + `/cards/${cardId}`, {
       method: 'DELETE',
       headers: {
         authorization: this._token
@@ -68,8 +68,8 @@ export default class Api {
     })
     .then(this._checkError)
   }
-  Like() {
-    return fetch(this._url + `/cards/${id}/likes`, {
+  like(cardId) {
+    return fetch(this._url + `/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: {
         authorization: this._token
@@ -77,8 +77,8 @@ export default class Api {
     })
     .then(this._checkError)
   }
-  dislike() {
-    return fetch(this._url + `/cards/${id}/likes`, {
+  dislike(cardId) {
+    return fetch(this._url + `/cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: {
         authorization: this._token

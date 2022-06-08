@@ -9,8 +9,7 @@ import {
   profileAddForm,
   profileAddButton,
   avatar,
-  profileAvatarForm,
-  likeButton
+  profileAvatarForm
 } from "../utils/constants";
 
 import Api from "../components/Api.js";
@@ -30,28 +29,36 @@ const api = new Api({
   token: '344a814f-d599-45ca-823f-f73b614ea6ce'
 });
 
-//Загрузка карточек
+const getUserInfo = () => {
+  Promise.all([api.getUserInfo(), api.getInitialCards()])
+    .then(([data, cards]) => {
+      userInfo.setUserInfo(data.name, data.about, data.avatar, data._id);
+      cards.reverse().forEach(card => {
+        fillCard(card)
+      });
+    })
+    .catch(err => console.log(`Ошибка: ${err}`));
+}
+getUserInfo();
 
+//Загрузка карточек
 const createCard = function (item) {
-  const card = new Card(item, '#gallery-cards', handleCardClick, popupNotification, userInfo, 
-  () => {
-    const cardId = card.getCardId();
-    if (card.isLiked) {
-      api.addLike(cardId)
-        .then((res) => {
-          card.likeToggle();
-          card.countLikes(res.likes.length)
+  const card = new Card({
+    like: (cardId) => {
+      api.like(cardId)
+        .then((data) => {
+          card.setLikeCounter(data);
         })
         .catch(err => console.log(`Ошибка: ${err}`));
-    } else {
+    },
+    dislike: (cardId) => {
       api.dislike(cardId)
-        .then((res) => {
-          card.likeToggle();
-          card.countLikes(res.likes.length)
-        })
-        .catch(err => console.log(`Ошибка: ${err}`));
+        .then((data) => {
+          card.setLikeCounter(data)
+       })
+       .catch(err => console.log(`Ошибка: ${err}`));
     }
-  });
+  }, item, '#gallery-cards', handleCardClick, popupNotification, userInfo) 
   const cardElement = card.createCard();
   return cardElement;
 };
@@ -83,17 +90,6 @@ function handleCardClick(link, name) {
 //Загрузка информации о пользователе
 const userInfo = new UserInfo('.profile__name', '.profile__about', '.profile__avatar');
 
-const getUserInfo = () => {
-  Promise.all([api.getUserInfo(), api.getInitialCards()])
-    .then(([data, cards]) => {
-      userInfo.setUserInfo(data.name, data.about, data.avatar, data._id);
-      cards.reverse().forEach(card => {
-        fillCard(card)
-      });
-    })
-    .catch(err => console.log(`Ошибка: ${err}`));
-}
-getUserInfo();
 
 //Редактирование данных профиля
 
@@ -178,8 +174,8 @@ const popupNotification = new PopupWarning({
   submitForm: (img, id) => {
     api.deleteCard(id)
       .then(() => {
-        popupNotification.close();
         img.deleteCardFinally();
+        popupNotification.close();
       })
       .catch(err => console.log(`Ошибка: ${err}`))
   }

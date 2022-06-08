@@ -6,7 +6,7 @@ export default class PopupWarning extends PopupWithForm{
    }
    _submitDelete = (evt) => {
       evt.preventDefault();
-      this._submitForm(this._targetCard, this._idCard);      
+      this._submitForm(this._targetCard, this._idCard);    
    }   
    open(targetCard, id) {
       this._targetCard = targetCard;
