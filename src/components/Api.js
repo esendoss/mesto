@@ -68,21 +68,21 @@ export default class Api {
     })
     .then(this._checkError)
   }
-  like(id) {
+  Like() {
     return fetch(this._url + `/cards/${id}/likes`, {
       method: 'PUT',
       headers: {
         authorization: this._token
-      } 
+      }
     })
     .then(this._checkError)
   }
-  dislike(id) {
+  dislike() {
     return fetch(this._url + `/cards/${id}/likes`, {
       method: 'DELETE',
       headers: {
         authorization: this._token
-      } 
+      }
     })
     .then(this._checkError)
   }
