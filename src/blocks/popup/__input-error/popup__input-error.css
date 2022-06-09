@@ -9,3 +9,9 @@
     display: flex;
     flex-direction: column;
 }
+@media screen and (max-width: 620px) {
+    .popup__input-error {
+        width: 238px;
+        margin-left: 22px;
+    }    
+}
