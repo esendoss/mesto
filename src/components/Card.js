@@ -1,26 +1,23 @@
 export default class Card {
-    constructor({ like, dislike, deleteCard }, data, cardSelector, handleCardClick, popupNotification, userInfo) {
+    constructor({ like, dislike, handlerDeleteClick }, data, cardSelector, handleCardClick, userInfo) {
         this._name = data.name;
         this._link = data.link;
         this._cardId = data.id;
+        this._userInfo = userInfo;
+        this._isMyCard = userInfo.id === data.owner
         this._owner = data.owner;
         this._likes = data.likes;
-        this._userInfo = userInfo;
-        this._popupNotification = popupNotification;
-
         this._cardSelector = cardSelector;
         this._handleCardClick = handleCardClick;
         this._like = like;
         this._dislike = dislike;
+        this._handlerDeleteButton = handlerDeleteClick;
     }
-    //удаление карточки 
-    _deleteCard() {
-        this._popupNotification.open(this._card, this._cardId);
+
+    getCardId() {
+        return this._cardId
     }
-    deleteCardFinally() {
-        this._card.remove();
-        this._card = null;
-    }
+
     _getTemplate() {
         const card = document
             .querySelector(this._cardSelector)
@@ -55,6 +52,7 @@ export default class Card {
         this._likesCounter.textContent = this._likes.length;
 
         this._deleteButton = this._card.querySelector('.card__delete');
+        
         if (this._owner === this._userInfo.id) {
             this._deleteButton.classList.add('card__delete_active')
         }
@@ -71,7 +69,10 @@ export default class Card {
                 this._like(this._cardId)
             }
         })
-        this._card.querySelector('.card__delete').addEventListener('click', () => this._deleteCard());
+
+        if (this._isMyCard) {
+            this._card.querySelector(".card__delete").addEventListener("click", (evt) => this._handlerDeleteButton(evt));
+        }
 
         this._card.querySelector('.card__img').addEventListener('click', () => {
             this._handleCardClick(this._name, this._link)

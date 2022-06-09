@@ -26,4 +26,7 @@ export default class UserInfo {
             this.id = id;
          }
     }
+    getUserId() {       
+         return this.id    
+    }
 }

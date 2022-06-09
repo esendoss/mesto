@@ -55,10 +55,31 @@ const createCard = function (item) {
       api.dislike(cardId)
         .then((data) => {
           card.setLikeCounter(data)
-       })
-       .catch(err => console.log(`Ошибка: ${err}`));
+        })
+        .catch(err => console.log(`Ошибка: ${err}`));
+    },
+    handlerDeleteClick: (evt) => {
+      const cardId = card.getCardId()
+      const cardElement = evt.target.closest('.card');
+      popupNotification.setHandlerSubmit((evt) => {
+        evt.preventDefault();
+        popupNotification.isLoading(true);
+        api.deleteCard(cardId)
+          .then(() => {
+            cardElement.remove()
+            popupNotification.close();
+          })
+          .catch((err) => {
+            console.log(`ошибка ${err}`)
+          })
+          .finally(() => {
+            popupNotification.isLoading(false);
+          });
+      })
+      popupNotification.open();
     }
-  }, item, '#gallery-cards', handleCardClick, popupNotification, userInfo) 
+
+  }, item, '#gallery-cards', handleCardClick, userInfo)
   const cardElement = card.createCard();
   return cardElement;
 };
@@ -89,7 +110,6 @@ function handleCardClick(link, name) {
 
 //Загрузка информации о пользователе
 const userInfo = new UserInfo('.profile__name', '.profile__about', '.profile__avatar');
-
 
 //Редактирование данных профиля
 
@@ -168,18 +188,8 @@ avatar.addEventListener('click', function () {
 })
 
 // Уведомление об удалении карточки
+const popupNotification = new PopupWarning('.popup_warning')
 
-const popupNotification = new PopupWarning({
-  popupSelector: '.popup_warning',
-  submitForm: (img, id) => {
-    api.deleteCard(id)
-      .then(() => {
-        img.deleteCardFinally();
-        popupNotification.close();
-      })
-      .catch(err => console.log(`Ошибка: ${err}`))
-  }
-});
 popupNotification.setEventListeners();
 
 //Валидация форм

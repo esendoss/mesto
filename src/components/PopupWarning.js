@@ -1,16 +1,30 @@
-import PopupWithForm from "../components/PopupWithForm.js";
-
-export default class PopupWarning extends PopupWithForm{
-   constructor({popupSelector, submitForm}) {
-      super({popupSelector, submitForm});
+import Popup from "../components/Popup.js"
+export default class PopupWarning extends Popup {
+   constructor(popupSelector) {
+      super(popupSelector);
+      this._formElement =
+         this._popup.querySelector('.form');
+      this._subbmitButton = this._popup.querySelector('.popup__submit')
    }
-   _submitDelete = (evt) => {
-      evt.preventDefault();
-      this._submitForm(this._targetCard, this._idCard);    
-   }   
-   open(targetCard, id) {
-      this._targetCard = targetCard;
-      this._idCard = id;
-      super.open();
+
+   setEventListeners() {
+      this._formElement.addEventListener('submit', (evt) =>
+         this._handlerSubmitForm(evt)
+      );
+      super.setEventListeners();
+   }
+
+   setHandlerSubmit(handler) {
+      this._handlerSubmitForm = handler
+   }
+
+   isLoading(isLoading) {
+      if (isLoading === true) {
+         this._subbmitButton.textContent = 'Удаление...';
+         this._subbmitButton.disabled = true;
+      } else {
+         this._subbmitButton.textContent = 'Ok';
+         this._subbmitButton.disabled = false;
+      }
    }
 }
