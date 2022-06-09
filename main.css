@@ -32,7 +32,7 @@
 .popup__title{font-size:24px;font-weight:900;line-height:29px;margin-bottom:54px;margin-left:36px;margin-top:34px}@media screen and (max-width:620px){.popup__title{font-size:18px;line-height:22px;margin-bottom:75px;margin-left:22px;margin-top:25px}}
 .popup__title_warning{margin-bottom:38px;margin-left:36px;margin-top:34px}
 .popup__input{border:none;border-bottom:1px solid rgba(0,0,0,.2);font-size:14px;font-weight:400;line-height:17px;margin-left:36px;padding:0 0 13px;width:358px}.popup__input:last-of-type{margin-top:30px}@media screen and (max-width:620px){.popup__input{margin-left:22px;width:238px}}
-.popup__input-error{color:red;display:flex;flex-direction:column;font-size:12px;font-weight:400;line-height:15px;margin-left:36px;margin-top:5px;width:358px}
+.popup__input-error{color:red;display:flex;flex-direction:column;font-size:12px;font-weight:400;line-height:15px;margin-left:36px;margin-top:5px;width:358px}@media screen and (max-width:620px){.popup__input-error{margin-left:22px;width:238px}}
 .popup__submit{background-color:#000;border:none;border-radius:2px;color:#fff;cursor:pointer;font-size:18px;font-weight:400;line-height:22px;margin:48px 36px 37px;padding-bottom:18px;padding-top:14px;width:358px}.popup__submit:hover{opacity:.8}@media screen and (max-width:620px){.popup__submit{font-size:14px;line-height:17px;margin:45px 22px 25px;padding-bottom:14px;padding-top:14px;width:238px}}
 .popup__container-image{position:relative}
 .popup__image{margin:auto;max-height:75vh;max-width:75vw;-o-object-fit:contain;object-fit:contain;position:relative}
