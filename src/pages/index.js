@@ -66,8 +66,8 @@ const createCard = function (item) {
         popupNotification.isLoading(true);
         api.deleteCard(cardId)
           .then(() => {
-            cardElement.remove()
             popupNotification.close();
+            card.deleteCard();
           })
           .catch((err) => {
             console.log(`ошибка ${err}`)

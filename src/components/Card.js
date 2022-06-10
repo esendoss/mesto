@@ -39,6 +39,10 @@ export default class Card {
         this._likesCounter.textContent = this._likes.length;
         this._likeButton.classList.toggle('card__like_active')
     };
+    deleteCard() {
+        this._card.remove();
+        this._card = null;
+    }
     createCard() {
         this._card = this._getTemplate();
         this._cardImg = this._card.querySelector('.card__img');
