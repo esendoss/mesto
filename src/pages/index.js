@@ -60,7 +60,6 @@ const createCard = function (item) {
     },
     handlerDeleteClick: (evt) => {
       const cardId = card.getCardId()
-      const cardElement = evt.target.closest('.card');
       popupNotification.setHandlerSubmit((evt) => {
         evt.preventDefault();
         popupNotification.isLoading(true);
